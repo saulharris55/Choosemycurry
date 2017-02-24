@@ -1,13 +1,6 @@
-import BeautifulSoup
+from bs4 import BeautifulSoup
+import urllib
 
-from BeautifulSoup import BeautifulSoup
+r = urllib.urlopen("http://www.indiacurry.com/Miscel/meatcurrylist.htm").read()
 
-import urllib2
-
-url = irllib2.urlopen(www.indiacurry.com/Miscel/meatcurrylist.htm)
-
-content = url.read()
-
-soup = BeautifulSoup(content)
-
-links = soup.findAll("hot")
+soup = BeautifulSoup(r,"lxml")
