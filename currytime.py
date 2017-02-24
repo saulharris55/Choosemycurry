@@ -1,13 +1,22 @@
-import BeautifulSoup
+import bs4 as BeautifulSoup
+import urllib
 
-from BeautifulSoup import BeautifulSoup
+# url = urllib2.urlopen('http://www.indiacurry.com/Miscel/meatcurrylist.htm')
+# content = url.read()
+# soup = BeautifulSoup(content)
+# tables = soup.find_all("table")
+# print tables
 
-import urllib2
+from bs4 import BeautifulSoup
+import urllib
+r = urllib.urlopen('http://www.indiacurry.com/Miscel/meatcurrylist.htm').read()
+soup = BeautifulSoup(r,"lxml")
 
-url = irllib2.urlopen(www.indiacurry.com/Miscel/meatcurrylist.htm)
+tables = soup.find_all("table")
 
-content = url.read()
+names = tables[3].find_all("tr")
+print names[0:3]
 
-soup = BeautifulSoup(content)
+# print soup.prettify()[:]
 
-links = soup.findAll("hot")
+# links = soup.findAll("hot")
